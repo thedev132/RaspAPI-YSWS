@@ -16,7 +16,7 @@ export default function Home() {
     },
     {
       question: "How do I submit my API?",
-      answer: "Click on the 'Submit API' button homepage or navigate to the fillout form."
+      answer: "Click on the 'Get Your Raspberry Pi' button homepage or navigate to the fillout form."
     },
     {
       question: "What are the submission deadlines?",
@@ -26,7 +26,7 @@ export default function Home() {
       question: "Can I submit multiple APIs?",
       answer: "Yes, you can submit multiple APIs, but only one Raspberry Pi will be awarded per participant."
     }
-    
+
   ]
 
   function RaspberryPiModel() {
@@ -46,10 +46,9 @@ export default function Home() {
             <nav className="bg-red-600 rounded-full overflow-hidden shadow-lg container mx-auto px-6 py-3 flex justify-between items-center max-w-6xl">
               <a href="#" className="text-2xl font-bold">RaspAPI</a>
               <div className="hidden md:flex space-x-6">
-                <a href="#" className="hover:text-red-200 transition-colors">Home</a>
-                <a href="#" className="hover:text-red-200 transition-colors">Submission</a>
-                <a href="#" className="hover:text-red-200 transition-colors">Requirements</a>
-                <a href="#" className="hover:text-red-200 transition-colors">FAQ</a>
+                <a href="#home" className="hover:text-red-200 transition-colors">Home</a>
+                <a href="#requirements" className="hover:text-red-200 transition-colors">Requirements</a>
+                <a href="#FAQ" className="hover:text-red-200 transition-colors">FAQ</a>
               </div>
               <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                 {mobileMenuOpen ? <X /> : <Menu />}
@@ -57,10 +56,9 @@ export default function Home() {
             </nav>
             {mobileMenuOpen && (
               <div className="md:hidden bg-red-600 py-2 mt-2">
-                <a href="#" className="block px-6 py-2 hover:bg-red-700 transition-colors">Home</a>
-                <a href="#" className="block px-6 py-2 hover:bg-red-700 transition-colors">Submission</a>
-                <a href="#" className="block px-6 py-2 hover:bg-red-700 transition-colors">Requirements</a>
-                <a href="#" className="block px-6 py-2 hover:bg-red-700 transition-colors">FAQ</a>
+                <a href="#home" className="block px-6 py-2 hover:bg-red-700 transition-colors">Home</a>
+                <a href="#requirements" className="block px-6 py-2 hover:bg-red-700 transition-colors">Requirements</a>
+                <a href="#FAQ" className="block px-6 py-2 hover:bg-red-700 transition-colors">FAQ</a>
               </div>
             )}
           </header>
@@ -69,7 +67,7 @@ export default function Home() {
       {/* Main Content */}
       <main className="container mx-auto px-4 py-12 pt-24">
         {/* Hero Section */}
-        <section className="flex flex-col items-center mb-16">
+        <section id="home" className="flex flex-col items-center mb-16">
           <div className="text-center mb-8">
             <h1 className="text-4xl mt-6 md:text-5xl font-bold mb-6 text-red-800">
               RaspAPI
@@ -92,16 +90,16 @@ export default function Home() {
             </Canvas>
           </div>
           {/* say this isnt the raspberry pi youll be getting */}
-          <p className="text-red-600 mt-4 text-xs">This isn't an accurate representation of the Raspberry Pi you'll be getting. The actual Raspberry Pi will be a 2 Zero model.</p>
+          <p className="text-red-600 mt-4 text-xs">This isn&apos;t an accurate representation of the Raspberry Pi you&apos;ll be getting. The actual Raspberry Pi will be a 2 Zero model.</p>
         </section>
 
         {/* Requirements Section */}
-        <section className="mb-16 max-w-4xl mx-auto">
+        <section id="requirements" className="mb-16 max-w-4xl mx-auto">
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h2 className="text-3xl font-bold mb-6 text-red-800 text-center">Requirements</h2>
             <ul className="list-disc list-inside space-y-3 text-lg">
               <li>Create an original API using any programming language or framework</li>
-              <li>Implement at least one GET and one POST endpoint</li>
+              <li>Implement at least three GET and one POST endpoint</li>
               <li>Include proper documentation for your API</li>
               <li>Host your API on a publicly accessible server</li>
               <li>Submit your API before the deadline January 1st</li>
@@ -110,7 +108,7 @@ export default function Home() {
         </section>
 
         {/* FAQ Section */}
-        <section className="max-w-4xl mx-auto">
+        <section id="FAQ" className="max-w-4xl mx-auto">
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h2 className="text-3xl font-bold mb-6 text-red-800 text-center">Frequently Asked Questions</h2>
             <div className="space-y-4">
@@ -136,7 +134,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-red-600 text-white py-8">
         <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2024 RaspAPI - Hack Club YSWS Event. All rights reserved.</p>
+          <p>&copy; 2024 RaspAPI - Hack Club Official YSWS. All rights reserved.</p>
         </div>
       </footer>
     </div>
