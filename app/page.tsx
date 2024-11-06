@@ -1,101 +1,144 @@
-import Image from "next/image";
+"use client"
+
+import { useState } from "react"
+import { Menu, X, ChevronDown, ChevronUp } from "lucide-react"
+import { Canvas } from "@react-three/fiber"
+import { OrbitControls, PerspectiveCamera, useGLTF } from "@react-three/drei"
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+  const faqItems = [
+    {
+      question: "What is RaspAPI?",
+      answer: "RaspAPI is a Hack Club YSWS program where participants can submit their own APIs and earn Raspberry Pi as reward."
+    },
+    {
+      question: "How do I submit my API?",
+      answer: "Click on the 'Submit API' button homepage or navigate to the fillout form."
+    },
+    {
+      question: "What are the submission deadlines?",
+      answer: "The submission deadline is January 1st. Make sure to submit your API before this date to be eligible for the reward."
+    },
+    {
+      question: "Can I submit multiple APIs?",
+      answer: "Yes, you can submit multiple APIs, but only one Raspberry Pi will be awarded per participant."
+    }
+    
+  ]
+
+  function RaspberryPiModel() {
+    const { scene } = useGLTF("/raspberry_pi_3.glb") // Placeholder for your model file
+
+    return <primitive 
+    object={scene} 
+    scale={1.5}      
+    />
+  }
+
+  return (
+    <div className="min-h-screen bg-red-50 text-red-900">
+      {/* Header */}
+      <div className="fixed top-4 left-4 right-4 z-10">
+          <header className="text-white">
+            <nav className="bg-red-600 rounded-full overflow-hidden shadow-lg container mx-auto px-6 py-3 flex justify-between items-center max-w-6xl">
+              <a href="#" className="text-2xl font-bold">RaspAPI</a>
+              <div className="hidden md:flex space-x-6">
+                <a href="#" className="hover:text-red-200 transition-colors">Home</a>
+                <a href="#" className="hover:text-red-200 transition-colors">Submission</a>
+                <a href="#" className="hover:text-red-200 transition-colors">Requirements</a>
+                <a href="#" className="hover:text-red-200 transition-colors">FAQ</a>
+              </div>
+              <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+                {mobileMenuOpen ? <X /> : <Menu />}
+              </button>
+            </nav>
+            {mobileMenuOpen && (
+              <div className="md:hidden bg-red-600 py-2 mt-2">
+                <a href="#" className="block px-6 py-2 hover:bg-red-700 transition-colors">Home</a>
+                <a href="#" className="block px-6 py-2 hover:bg-red-700 transition-colors">Submission</a>
+                <a href="#" className="block px-6 py-2 hover:bg-red-700 transition-colors">Requirements</a>
+                <a href="#" className="block px-6 py-2 hover:bg-red-700 transition-colors">FAQ</a>
+              </div>
+            )}
+          </header>
+      </div>
+
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-12 pt-24">
+        {/* Hero Section */}
+        <section className="flex flex-col items-center mb-16">
+          <div className="text-center mb-8">
+            <h1 className="text-4xl mt-6 md:text-5xl font-bold mb-6 text-red-800">
+              RaspAPI
+            </h1>
+            <p className="text-2xl mb-6 text-red-700">
+              Submit your own API and earn a Raspberry Pi!
+            </p>
+            <button className="bg-red-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition-colors transform hover:scale-105 duration-200">
+              Get your Raspberry Pi
+            </button>
+          </div>
+          <div className="w-full max-w-2xl h-64">
+            {/* 3D Model Canvas */}
+            <Canvas>
+              <ambientLight />
+              <PerspectiveCamera makeDefault position={[0, 7, 8]} />
+              <directionalLight position={[2, 5, 2]} />
+              <RaspberryPiModel />
+              <OrbitControls />
+            </Canvas>
+          </div>
+          {/* say this isnt the raspberry pi youll be getting */}
+          <p className="text-red-600 mt-4 text-xs">This isn't an accurate representation of the Raspberry Pi you'll be getting. The actual Raspberry Pi will be a 2 Zero model.</p>
+        </section>
+
+        {/* Requirements Section */}
+        <section className="mb-16 max-w-4xl mx-auto">
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h2 className="text-3xl font-bold mb-6 text-red-800 text-center">Requirements</h2>
+            <ul className="list-disc list-inside space-y-3 text-lg">
+              <li>Create an original API using any programming language or framework</li>
+              <li>Implement at least one GET and one POST endpoint</li>
+              <li>Include proper documentation for your API</li>
+              <li>Host your API on a publicly accessible server</li>
+              <li>Submit your API before the deadline January 1st</li>
+            </ul>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h2 className="text-3xl font-bold mb-6 text-red-800 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              {faqItems.map((item, index) => (
+                <div key={index} className="border-b border-red-200 pb-4">
+                  <button
+                    className="flex justify-between items-center w-full text-left font-semibold text-lg"
+                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  >
+                    {item.question}
+                    {openFaq === index ? <ChevronUp className="text-red-600" /> : <ChevronDown className="text-red-600" />}
+                  </button>
+                  {openFaq === index && (
+                    <p className="mt-2 text-red-700">{item.answer}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer className="bg-red-600 text-white py-8">
+        <div className="container mx-auto px-4 text-center">
+          <p>&copy; 2024 RaspAPI - Hack Club YSWS Event. All rights reserved.</p>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
