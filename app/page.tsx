@@ -90,14 +90,14 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Prize pool Section */}
+        {/* Prize Pool Section */}
         <section id="prizepool" className="mb-16 max-w-4xl mx-auto">
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h2 className="text-3xl font-bold mb-6 text-red-800 text-center">Prize Pool!</h2>
             <h2 className="text-xl text-bold text-center mb-10">Top 3 winners will get a Sensor HAT to go along with their Raspberry Pi!</h2>
             <div className="flex justify-center items-center">
             <div className="mr-5">
-              <p className="text-lg text-center">The Sensor HAT is a great addition to your Raspberry Pi, allowing you to measure temperature, humidity, and more!</p>
+              <p className="text-lg sm:text-md text-center">The Sensor HAT is a great addition to your Raspberry Pi, allowing you to measure temperature, humidity, and more!</p>
             </div>
             <div className="w-full max-w-2xl h-64">
               <img src="/sensorhat.png" alt="Sensor HAT" className="w-full h-full object-contain" />
