@@ -2,8 +2,6 @@
 
 import { useState } from "react"
 import { Menu, X, ChevronDown, ChevronUp } from "lucide-react"
-import { Canvas } from "@react-three/fiber"
-import { OrbitControls, PerspectiveCamera, useGLTF } from "@react-three/drei"
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -29,15 +27,6 @@ export default function Home() {
 
   ]
 
-  function RaspberryPiModel() {
-    const { scene } = useGLTF("/raspberry_pi_3.glb") // Placeholder for your model file
-
-    return <primitive 
-    object={scene} 
-    scale={1.5}      
-    />
-  }
-
   return (
     <div className="min-h-screen bg-red-50 text-red-900">
       {/* Header */}
@@ -48,6 +37,7 @@ export default function Home() {
               <div className="hidden md:flex space-x-6">
                 <a href="#home" className="hover:text-red-200 transition-colors">Home</a>
                 <a href="#requirements" className="hover:text-red-200 transition-colors">Requirements</a>
+                <a href="#prizepool" className="hover:text-red-200 transition-colors">Prize Pool</a>
                 <a href="#FAQ" className="hover:text-red-200 transition-colors">FAQ</a>
               </div>
               <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -58,6 +48,7 @@ export default function Home() {
               <div className="md:hidden bg-red-600 py-2 mt-2">
                 <a href="#home" className="block px-6 py-2 hover:bg-red-700 transition-colors">Home</a>
                 <a href="#requirements" className="block px-6 py-2 hover:bg-red-700 transition-colors">Requirements</a>
+                <a href="#prizepool" className="block px-6 py-2 hover:bg-red-700 transition-colors">Prize Pool</a>
                 <a href="#FAQ" className="block px-6 py-2 hover:bg-red-700 transition-colors">FAQ</a>
               </div>
             )}
@@ -80,17 +71,8 @@ export default function Home() {
             </button>
           </div>
           <div className="w-full max-w-2xl h-64">
-            {/* 3D Model Canvas */}
-            <Canvas>
-              <ambientLight />
-              <PerspectiveCamera makeDefault position={[0, 7, 8]} />
-              <directionalLight position={[2, 5, 2]} />
-              <RaspberryPiModel />
-              <OrbitControls />
-            </Canvas>
+            <img src="/rpi.png" alt="Raspberry Pi" className="w-full h-full object-contain" />
           </div>
-          {/* say this isnt the raspberry pi youll be getting */}
-          <p className="text-red-600 mt-4 text-xs">This isn&apos;t an accurate representation of the Raspberry Pi you&apos;ll be getting. The actual Raspberry Pi will be a 2 Zero model.</p>
         </section>
 
         {/* Requirements Section */}
@@ -99,11 +81,29 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-6 text-red-800 text-center">Requirements</h2>
             <ul className="list-disc list-inside space-y-3 text-lg">
               <li>Create an original API using any programming language or framework</li>
+              <li>Record at least 3 hours using Hakatime for proof</li>
               <li>Implement at least three GET and one POST endpoint</li>
-              <li>Include proper documentation for your API</li>
+              <li>Include proper detailed documentation for your API</li>
               <li>Host your API on a publicly accessible server</li>
               <li>Submit your API before the deadline January 1st</li>
             </ul>
+          </div>
+        </section>
+
+        {/* Prize pool Section */}
+        <section id="prizepool" className="mb-16 max-w-4xl mx-auto">
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h2 className="text-3xl font-bold mb-6 text-red-800 text-center">Prize Pool!</h2>
+            <h2 className="text-xl text-bold text-center mb-10">Top 3 winners will get a Sensor HAT to go along with their Raspberry Pi!</h2>
+            <div className="flex justify-center items-center">
+            <div className="mr-5">
+              <p className="text-lg text-center">The Sensor HAT is a great addition to your Raspberry Pi, allowing you to measure temperature, humidity, and more!</p>
+            </div>
+            <div className="w-full max-w-2xl h-64">
+              <img src="/sensorhat.png" alt="Sensor HAT" className="w-full h-full object-contain" />
+            </div>
+            </div>
+
           </div>
         </section>
 
