@@ -81,7 +81,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-6 text-red-800 text-center">Requirements</h2>
             <ul className="list-disc list-inside space-y-3 text-lg mb-5">
               <li>Create an original API using any programming language or framework</li>
-              <li>Submit your project to High Seas for extra rewards (and for proof)</li>
+              <li>Submit your project to High Seas with minimum 3 hours for extra rewards (and for proof)</li>
               <li>Implement at least three GET and one POST endpoint</li>
               <li>Include proper detailed documentation for your API</li>
               <li>Host your API on a publicly accessible server</li>
