@@ -67,7 +67,7 @@ export default function Home() {
               Submit your own API and earn a Raspberry Pi!
             </p>
             <button className="bg-red-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-red-700 transition-colors transform hover:scale-105 duration-200">
-              Get your Raspberry Pi
+              <a href="https://forms.fillout.com/t/nzGCgZ4XUYus">Get your Raspberry Pi</a>
             </button>
           </div>
           <div className="w-full max-w-2xl h-64">
@@ -81,7 +81,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-6 text-red-800 text-center">Requirements</h2>
             <ul className="list-disc list-inside space-y-3 text-lg">
               <li>Create an original API using any programming language or framework</li>
-              <li>Record at least 3 hours using Hakatime for proof</li>
+              <li>Submit your project to High Seas for extra rewards (and for proof)</li>
               <li>Implement at least three GET and one POST endpoint</li>
               <li>Include proper detailed documentation for your API</li>
               <li>Host your API on a publicly accessible server</li>
