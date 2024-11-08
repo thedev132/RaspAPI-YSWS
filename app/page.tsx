@@ -79,7 +79,7 @@ export default function Home() {
         <section id="requirements" className="mb-16 max-w-4xl mx-auto">
           <div className="bg-white rounded-lg shadow-lg p-8">
             <h2 className="text-3xl font-bold mb-6 text-red-800 text-center">Requirements</h2>
-            <ul className="list-disc list-inside space-y-3 text-lg">
+            <ul className="list-disc list-inside space-y-3 text-lg mb-5">
               <li>Create an original API using any programming language or framework</li>
               <li>Submit your project to High Seas for extra rewards (and for proof)</li>
               <li>Implement at least three GET and one POST endpoint</li>
@@ -87,6 +87,11 @@ export default function Home() {
               <li>Host your API on a publicly accessible server</li>
               <li>Submit your API before the deadline January 1st</li>
             </ul>
+
+           <p className="text-xl mb-3">Examples:</p>
+           <ul className="list-disc list-inside space-y-3 text-lg mb-5">
+              <li><a className="underline" href="https://raspapi-example.adamthegreat.hackclub.app/">Joke API</a> created by Adam Xu</li>
+           </ul>
           </div>
         </section>
 
