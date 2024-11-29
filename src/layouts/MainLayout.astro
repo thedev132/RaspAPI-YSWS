@@ -20,15 +20,12 @@ const { title = 'RaspAPI YSWS' } = Astro.props;
     <slot />
 
     <main class="container mx-auto px-4 py-8">
-        <div class="hidden dark:block">
+        <div class="dark:hidden">
             <slot name="programmer" />
         </div>
-        <div class="dark:hidden">
+        <div class="hidden dark:block">
             <slot name="readable" />
         </div>
     </main>
-    <footer class="text-center text-green-600 text-xs py-4">
-        <span class="hidden dark:inline-block">//</span> RaspAPI YSWS - Submit an API, get a Raspberry Pi!
-    </footer>
 </body>
 </html>
