@@ -21,7 +21,7 @@ ${yellow}Here’s your secret code: ${blue}**RASPBERRY-PI-2024/2025**${reset}
 ${magenta}Great job following the clues and learning about RaspAPI along the way!${reset}
 
 ${cyan}Enter this code on the submission form to complete the challenge!${reset}
-`.trim();
+\n`;
 
 export const GET: APIRoute = () => {
     return new Response(res, {
