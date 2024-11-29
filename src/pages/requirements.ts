@@ -17,7 +17,7 @@ const res = `${green}{${reset}
   ${yellow}"documentation"${reset}: ${yellow}"Required"${reset},${reset}
   ${yellow}"example"${reset}: ${yellow}"https://raspapi-example.adamthegreat.hackclub.app/"${reset},${reset}
   ${blue}"hint"${reset}: ${yellow}"Check out /prizes to learn more about our prize pool—and uncover another clue!"${reset}
-${green}}`;
+${green}}\n`;
 
 export const GET: APIRoute = () => {
     return new Response(res, {

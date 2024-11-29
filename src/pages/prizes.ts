@@ -13,7 +13,7 @@ const res = `${green}{${reset}
     ${red}"top_3"${reset}: ${cyan}"Raspberry Pi Sensor HAT"${reset},${reset}
     ${red}"about"${reset}: ${cyan}"The Sensor HAT is a great addition to your Raspberry Pi, allowing you to measure temperature, humidity, and more!"${reset},${reset}
     ${yellow}"hint"${reset}: ${green}"Check out /submit to learn how to submit your API—and uncover the final clue!"${reset}
-${green}}`;
+${green}}\n`;
 
 export const GET: APIRoute = () => {
     return new Response(res, {

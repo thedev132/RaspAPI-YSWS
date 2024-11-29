@@ -14,7 +14,7 @@ ${red}Welcome to RaspAPI!${reset}
 ${green}Here's the start of your journey:
 - Learn about the project at \`/mission\`${reset}.
 
-${yellow}**Hint**: This isn't just about APIs. There are secrets to uncover along the way.${reset}
+${yellow}**Hint**: This isn't just about APIs. There are secrets to uncover along the way.${reset}\n
 `;
 
 export const GET: APIRoute = () => {

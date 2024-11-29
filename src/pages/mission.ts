@@ -14,7 +14,7 @@ const res = `${green}{${reset}
   ${red}"status"${reset}: ${green}"ACTIVE",${reset}
   ${red}"get_free_stuff"${reset}: ${green}true,${reset}
   ${red}"hint"${reset}: ${green}"Visit /requirements to learn about submission requirements—and find the next clue!"${reset}
-${green}}${red}`;
+${green}}\n${red}`;
 
 export const GET: APIRoute = () => {
     return new Response(res, {

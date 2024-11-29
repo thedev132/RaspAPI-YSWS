@@ -13,7 +13,7 @@ const res = `${cyan}{${reset}
   ${red}"submission_link"${reset}: ${cyan}"https://forms.fillout.com/t/nzGCgZ4XUYus"${reset},${reset}
   ${red}"deadline"${reset}: ${yellow}"January 31, 2025"${reset},${reset}
   ${cyan}"hint"${reset}: ${green}"navigate to ${red}/NUMBER_OF_ENDPOINTS_REQUIRED${reset}${green} to finally uncover the secret!"${reset}
-${cyan}}$`;
+${cyan}}\n`;
 
 export const GET: APIRoute = () => {
     return new Response(res, {
